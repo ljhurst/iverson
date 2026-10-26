@@ -43,14 +43,28 @@ Start with one line for the overall verdict: it went in well, something's off, o
 worth investing now. If it went in well, say so and say why in a sentence or two; don't
 invent findings to look thorough.
 
-Then every finding, most important first, including the ones you'd leave alone:
+Then group every finding by its action, in this order, and skip empty groups:
+
+1. **Fix now**: before the PR merges.
+2. **Ask**: needs a decision from the author or user before anyone can act.
+3. **Fix later**: worth doing, but not in this PR; say what makes it more expensive to wait.
+4. **Leave**: noticed and judged fine; one line each.
+
+Within a group, put the most important finding first. Number findings straight through the
+whole report (1, 2, 3...) so they can be referenced by number across groups. Start each
+finding with its action and number in bold, then:
 - what it is, with a path;
 - why it matters (what breaks, drifts, or gets harder later);
-- what fixing it costs, roughly;
-- your call: fix now, fix later, or leave, and why.
+- what fixing it costs, roughly.
 
-Report everything you notice and give your recommendation. Don't hold back findings you
-judge minor; the user decides what to act on.
+> **Fix now 1. Strict read of saved requests.** `integrations/mlflow_service.py` validates
+> `request.json` with `extra="forbid"`, so removing a config field breaks every older run.
+> About 5 lines: log and return `None` on a validation error.
+
+End with one line naming which findings you'd act on and in what order.
+
+Report everything you notice. Don't hold back findings you judge minor; put them in
+**Leave** and the user decides.
 
 ## Rules
 
