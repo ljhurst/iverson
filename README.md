@@ -13,8 +13,12 @@ Symlinks each `skills/<name>/` into `~/.claude/skills` and, when `~/.cursor`
 exists, `~/.cursor/skills`. It refuses to replace a real directory, so move
 an existing copy aside first.
 
-`AGENTS.md` holds the portable rules. Point a tool at it from its own config
-(`CLAUDE.md` in this repo imports it).
+`AGENTS.md` holds the portable rules:
+
+- Claude Code: `CLAUDE.md` in this repo imports it. For global use, import it
+  from `~/.claude/CLAUDE.md`.
+- Cursor: there is no global `AGENTS.md`; paste the rules into Cursor's user
+  rules.
 
 ## Contributing
 
