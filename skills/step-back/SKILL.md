@@ -11,12 +11,13 @@ something isn't right and you can feel it. Sometimes the plan chose a quick fix,
 that you can see the whole thing, investing a bit more would make it much cleaner.
 
 Do this while you still remember why you made each choice. That memory is what makes this
-pass worth doing, and it's gone by the next task.
+pass worth doing, and it's gone by the next task. If the work happened in an earlier
+session, read that session's transcript or history first, where the tool keeps one.
 
 ## How
 
-1. Re-read the whole diff (`git diff main...HEAD`, plus anything uncommitted), not your
-   memory of it. Read the surrounding code your change touches too.
+1. Re-read the whole diff (`git diff $(git merge-base HEAD origin/HEAD)`, which includes
+   anything uncommitted), not your memory of it. Read the surrounding code your change touches too.
 2. Answer these honestly, including about decisions you made or argued for earlier:
    - **The feel.** Does it sit well, or does something grate? Name the exact thing.
    - **Did it go in cleanly?** Did the existing code make the change easy, or did you fight
@@ -28,7 +29,8 @@ pass worth doing, and it's gone by the next task.
    - **Short-term or invest?** Did the plan take a shortcut that now looks expensive? What
      would the deeper fix or refactor cost now, and what will it cost once more code sits
      on top of this one?
-   - **The project's own rules.** Read its CLAUDE.md and design docs. Does the change break
+   - **The project's own rules.** Read its agent rules (`CLAUDE.md`, `AGENTS.md`,
+     `.cursor/rules/`, or the equivalent) and design docs. Does the change break
      a stated principle, even quietly?
    - **One source of truth?** Is the same fact (a schema, a limit, a list) written in two
      places that can drift?
