@@ -6,12 +6,14 @@ reviewed repo. Personal learnings only; nothing employer-specific.
 ## Install
 
 ```bash
-./install.sh
+./install.sh          # each tool whose home directory exists
+./install.sh cursor   # Cursor only
+./install.sh claude   # Claude Code only
 ```
 
-Symlinks each `skills/<name>/` into `~/.claude/skills` and, when `~/.cursor`
-exists, `~/.cursor/skills`. It refuses to replace a real directory, so move
-an existing copy aside first.
+Symlinks each `skills/<name>/` into `~/.claude/skills`, `~/.cursor/skills`,
+or both. It refuses to replace a real directory, so move an existing copy
+aside first.
 
 `AGENTS.md` holds the portable rules:
 
