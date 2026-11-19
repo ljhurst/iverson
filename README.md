@@ -22,6 +22,16 @@ aside first.
 - Cursor: there is no global `AGENTS.md`; paste the rules into Cursor's user
   rules.
 
+## Dev loop
+
+Say "implement issue N" and `implement-issue` runs the loop: read, ask, weigh plans,
+build, run it for real, step back, open the PR. It calls three skills you can also use
+alone:
+
+- `research-practices`: current best practice and package versions
+- `weigh-plans`: two or three plans, one pick
+- `step-back`: honest read on the finished change
+
 ## Contributing
 
 Agents on either machine open a pull request against `main`; the owner
